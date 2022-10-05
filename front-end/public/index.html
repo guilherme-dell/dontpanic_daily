@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Don't Panic, Baby!</title>
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato|Silkscreen|Prompt">
+    <link href="style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="logo.png" />
+</head>
+<body>
+    <header>
+        <h1>Don't Panic, Baby!</h1>
+    </header>
+    <main>
+        <div class="board">
+            <div class="board-title">Last Attempt <i class="help"><a title="Sobre o Jogo" target="_blank" href="https://github.com/42sp/42labs-dontpanic_baby-67313174">?</a></i></div>
+            <div class="board-body">
+                <div class="board-line">
+                    <div class="board-item" id="last_input1"></div>
+                    <div class="board-item" id="last_input2"></div>
+                    <div class="board-item" id="last_input3"></div>
+                    <div class="board-item" id="last_input4"></div>
+                    <div class="board-item" id="last_input5"></div>
+                    <div class="board-item" id="last_input6"></div>
+                </div>
+                <div class="board-line">
+                    <div class="board-item" id="campo_dica1"></div>
+                    <div class="board-item" id="campo_dica2"></div>
+                    <div class="board-item" id="campo_dica3"></div>
+                    <div class="board-item" id="campo_dica4"></div>
+                    <div class="board-item" id="campo_dica5"></div>
+                    <div class="board-item" id="campo_dica6"></div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="board">
+            <div class="board-title">Current Attempt</div>
+            <div class="board-body">
+                <div class="board-line">
+                    <div class="board-item input"><input type="text" name="input-1" id="input-1" value="" maxlength="1"></div>
+                    <div class="board-item input"><input type="text" name="input-2" id="input-2" value="" maxlength="1"></div>
+                    <div class="board-item input"><input type="text" name="input-3" id="input-3" value="" maxlength="1"></div>
+                    <div class="board-item input"><input type="text" name="input-4" id="input-4" value="" maxlength="1"></div>
+                    <div class="board-item input"><input type="text" name="input-5" id="input-5" value="" maxlength="1"></div>
+                    <div class="board-item input"><input type="text" name="input-6" id="input-6" value="" maxlength="1"></div>
+                </div>
+            </div>
+            <div id="error-message"></div>
+            <div id="win-message"></div>
+    
+        </div>
+        <br>
+        <script src="main.js"> </script>
+        <button type="submit" onclick="jogar()" class="play-button">Play</button>
+        <div><i id="loading"></i></div>
+    </main>
+    <footer>
+        Copyleft &copy; <b>42 Sao Paulo</b>
+    </footer>
+</body>
+</html>

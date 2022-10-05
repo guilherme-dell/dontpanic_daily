@@ -1,0 +1,230 @@
+*{
+	font-family: 'Silkscreen', sans-serif;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	background-color: black;
+}
+
+b {
+	font-weight: bold;
+}
+
+header{
+	text-align: center;
+	padding: 3em 0;
+	background-color: greenyellow;
+}
+
+header h1 {
+	font-size: 3em;
+	color: #000000;
+	font-weight: 900;
+}
+
+main {
+	/* width: 100%; */
+	text-align: center;
+	padding: 2em 0;
+	/* min-height: 100vh */
+	/* min-height: 72vh */
+}
+
+.logo {
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	background: url(logo-color.png);
+	background-size: 60px 60px;
+}
+
+.board {
+	display: inline-block;
+	margin-bottom: 1.5em;
+}
+
+.board .board-title {
+	font-family: "Lato", 'Courier New', Courier, monospace;
+	text-transform: uppercase;
+	font-weight: 900;
+	text-align: left;
+	font-size: 0.9em;
+	color: #FFFFFF;
+	margin-bottom: 0.5em;
+}
+
+.board .board-title i.help {
+	float: right;
+}
+
+.board .board-title i.help a,
+.board .board-title i.help a:link,
+.board .board-title i.help a:visited {
+	color: greenyellow;
+	width: 2.6em;
+	display: inline-block;
+	font-size: 0.9em;
+	font-style: normal;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	padding: 0.1em;
+	border: 1px solid greenyellow;
+	border-radius: 15px;
+}
+
+.board .board-title i.help a:hover,
+.board .board-title i.help a:active{
+	color: #FFFFFF;
+	border-color: #FFFFFF;
+}
+
+.board .board-body {
+	padding: 1em;
+}
+
+.board .board-body .board-line {
+	display: flex;
+	justify-content: center;
+	gap: 12px;
+	margin-bottom: 1em;
+}
+
+.board .board-body .board-line:last-child {
+	margin-bottom: 0;
+}
+
+.board .board-body .board-line .board-item,
+.board .board-body .board-line .board-item.input input {
+	font-weight: 700;
+	text-align: center;
+	border-radius: 15px;
+}
+
+.board .board-body .board-line .board-item {
+	width: 2.6em;
+	height: 2.6em;
+	box-sizing: border-box;
+	font-size: 1.3em;
+	line-height: 2.6em;
+	border: dotted 2px greenyellow;
+}
+
+.board .board-body .board-line .board-item.last-answer {
+	color: greenyellow;
+}
+
+.board .board-body .board-line .board-item.last-answer.light {
+	/* background: rgb(51, 77, 13); */
+	box-shadow: 0 0px 8px 0 greenyellow;
+}
+
+.board .board-body .board-line .board-item.tip-c,
+.board .board-body .board-line .board-item.tip-t,
+.board .board-body .board-line .board-item.tip-x {
+	color: greenyellow;
+	text-transform: uppercase;
+}
+
+.board .board-body .board-line .board-item.input {
+	border: 2px dotted greenyellow;
+}
+
+.board .board-body .board-line .board-item.input input {
+	width: 100%;
+	line-height: 100%;
+	height: 100%;
+	color: greenyellow;
+	font-size: 1em;
+	border: none;
+	background: transparent;
+}
+
+.board .board-body .board-line .board-item.input input:focus{
+	background: rgb(51, 77, 13, 0.5);
+	outline: none;
+}
+
+.board  #error-message,
+.board  #win-message {
+	font-size: 0.9em;
+	padding: 0.5em 0;
+	display: none;
+}
+
+
+.board  #error-message {
+	color: #F25540;
+
+}
+
+@keyframes animate {
+	0% {
+		opacity: 0;
+	}
+
+	50% {
+		opacity: 0.9;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+.board  #win-message {
+	font-size: 1.2em;
+	animation: animate 1s linear infinite;
+	color: greenyellow;
+}
+
+.board #error-message.show-error,
+.board #win-message.show-message {
+	display: inherit;
+}
+
+
+.play-button {
+	width: 8em;
+	font-weight: 500;
+	font-size: 1.2em;
+	padding: 0.5em;
+	box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25);
+	border-radius: 15px;
+	border: none;
+}
+
+.play-button:hover {
+	cursor: pointer;
+	font-weight: bold;
+	font-style: italic;
+	box-shadow: 0 0px 10px 0 greenyellow;
+}
+
+#loading {
+	opacity: .8;
+	width: 25px;
+	height: 25px;
+	margin: 0.5em;
+	display: inline-block;
+	background: red;
+	background: url(loading.gif);
+	background-size: 25px 25px;
+	display: none;
+}
+
+#loading.show-loading {
+	display: inline-block;
+}
+
+footer {
+	text-align: center;
+	font-size: 0.8em;
+	color: #999999;
+	border-top: solid 1px #0E0E0E;
+	padding-top: 1.5em;
+	height: 2.5rem;
+}
