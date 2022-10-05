@@ -5,7 +5,7 @@ import "dontpanic/gamerules"
 var invalidExpression = serverResponse {
 	Status : false,
 	Msg_erro :"Equação invalida ",
-	Expressao : RequestReceived.Expressao,
+	Expressao : requestReceived.Expressao,
 	Match : false,
 	Dica : [6]string{},
 }
@@ -13,7 +13,7 @@ var invalidExpression = serverResponse {
 var emptyField = serverResponse {
 	Status : false,
 	Msg_erro :"Preencha todos os campos",
-	Expressao : RequestReceived.Expressao,
+	Expressao : requestReceived.Expressao,
 	Match : false,
 	Dica : [6]string{},
 }
@@ -21,27 +21,27 @@ var emptyField = serverResponse {
 var invalidResult = serverResponse {
 	Status : false,
 	Msg_erro :"O resultado da sua expressão não é 42",
-	Expressao : RequestReceived.Expressao,
+	Expressao : requestReceived.Expressao,
 	Match : false,
 	Dica : [6]string{},
 }
 
-func gameWin(r aplicationRequest, g gamerules.Game) (res serverResponse){
-	res.Status  = true
-	res.Msg_erro = ""
-	res.Expressao = r.Expressao
-	res.Match = true
-	res.Dica = g.Dicas(EquacaoDoDia)
+func gameWin(r aplicationRequest, g gamerules.Game) (response serverResponse){
+	response.Status  = true
+	response.Msg_erro = ""
+	response.Expressao = r.Expressao
+	response.Match = true
+	response.Dica = g.Dicas(equacaoDoDia)
 
 	return
 }
 
-func gameTip(r aplicationRequest, g gamerules.Game) (res serverResponse){
-	res.Status  = true
-	res.Msg_erro = ""
-	res.Expressao = r.Expressao
-	res.Match = false
-	res.Dica = g.Dicas(EquacaoDoDia)
+func gameTip(r aplicationRequest, g gamerules.Game) (response serverResponse){
+	response.Status  = true
+	response.Msg_erro = ""
+	response.Expressao = r.Expressao
+	response.Match = false
+	response.Dica = g.Dicas(equacaoDoDia)
 
 	return
 }
