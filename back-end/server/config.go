@@ -17,6 +17,5 @@ func ConfiguraServidor() {
 	server := gin.Default()
 	configurarCors(server)
 	server.POST("/jogar", jogar)
-
 	server.Run()
 }
