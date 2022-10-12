@@ -240,3 +240,12 @@ func ConverterArrayStringParaArrayRuna(input [6]string) [6]rune {
 
 	return arrayDeRuna
 }
+
+func ConvertsorRuna(input string) [6]rune {
+	var arrayDeRuna [6]rune
+	for i:=0; i <= 5; i++ {
+		arrayDeRuna[i] = rune(input[i])
+	}
+
+	return arrayDeRuna
+}

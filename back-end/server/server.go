@@ -2,6 +2,7 @@ package server
 
 import (
 	"dontpanic/gamerules"
+	"dontpanic/db"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -23,7 +24,8 @@ type aplicationRequest struct {
 }
 
 var requestReceived aplicationRequest
-var equacaoDoDia = [6]rune{'8', '4', '/', '2', '+', '0'}
+var equacaoGerada = db.GetDailyEquation()
+var equacaoDoDia = gamerules.ConvertsorRuna(equacaoGerada)
 var game gamerules.Game
 
 func jogar(request *gin.Context) {
