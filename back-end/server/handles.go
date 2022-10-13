@@ -25,7 +25,7 @@ func playHandle(gc *gin.Context) {
 	json.Unmarshal(body, &clientReq)
 
 	// request com campos em branco
-	if !hasEmptyString(clientReq.Equation[:]) {
+	if hasEmptyString(clientReq.Equation[:]) {
 		gc.JSON(http.StatusOK, errorResponse(
 			clientReq.Equation, "preencha todos os campos"))
 		return

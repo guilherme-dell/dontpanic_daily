@@ -40,7 +40,7 @@ func TodayEquation() (string, error) {
 
 func startConnection() (*sql.DB, error) {
 
-	connString := "host=localhost "
+	connString := "host=db "
 	connString += "port=5432 "
 	connString += "user=postgres "
 	connString += "password=postgres "
