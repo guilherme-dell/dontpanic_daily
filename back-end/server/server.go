@@ -5,6 +5,9 @@ import (
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
+	docs "dontpanic/docs"
+  swaggerfiles "github.com/swaggo/files"
+  ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 type serverResponse struct {
@@ -19,9 +22,13 @@ type clientRequest struct {
 	Equation [6]string `json:"expressao"`
 }
 
+// Start		godoc
+// @Summary Inicializa a API com GIN
 func Start() {
 	server := gin.Default()
+	docs.SwaggerInfo.BasePath = "/"
 	configCors(server)
+	server.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 	server.POST("/jogar", playHandle)
 	err := server.Run(":8080")
 	if err != nil {
@@ -29,6 +36,8 @@ func Start() {
 	}
 }
 
+// configCors		godoc
+// @Summary		Configuração de Cors
 func configCors(server *gin.Engine) {
 	server.Use(cors.New(cors.Config{
 		AllowOrigins: []string{"*"},

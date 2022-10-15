@@ -39,6 +39,8 @@ var equations = []string{
 	"51/1-9",
 }
 
+// randomEquation	godoc
+// @Summary			Retorna uma equação da struct "equations" de forma aleatória 
 func randomEquation(differentOf string) string {
 	rand.Seed(time.Now().UnixNano())
 	equation := equations[rand.Intn(len(equations))]

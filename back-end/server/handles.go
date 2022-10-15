@@ -12,6 +12,8 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// playHandle		godoc
+// @Summary		Inicializa o jogo e informa dicas
 func playHandle(gc *gin.Context) {
 
 	// carrega o corpo da requisição
@@ -60,7 +62,8 @@ func playHandle(gc *gin.Context) {
 	gc.JSON(http.StatusOK, successResponse(clientReq.Equation, match, hintsAdapter(hints)))
 }
 
-// transforma a string de dica em um array de strings
+// hintsAdapter		godoc
+// @Summary		Transforma a string de dica em um array de strings
 func hintsAdapter(hints string) [6]string {
 	res := [6]string{}
 	for i, v := range hints {
@@ -72,7 +75,8 @@ func hintsAdapter(hints string) [6]string {
 	return res
 }
 
-// transforma um slice em uma string
+// sliceToString		godoc
+// @Summary	Transforma um slice em uma string
 func sliceToString(slice []string) string {
 	result := ""
 	for _, v := range slice {
@@ -80,8 +84,8 @@ func sliceToString(slice []string) string {
 	}
 	return result
 }
-
-// verifica se há strings vazias na slice informada
+// hasEmptyString		godoc
+// @Summary 		Verifica se há strings vazias na slice informada
 func hasEmptyString(slice []string) bool {
 	if len(slice) < 1 {
 		return true

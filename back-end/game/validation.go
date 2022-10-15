@@ -6,6 +6,8 @@ import (
 	"unicode"
 )
 
+// validateEquation	godoc
+// @Summary			Identifica se o tamanho, formato e valor é de uma equação válida
 func validateEquation(equation string) error {
 	if len([]rune(equation)) != 6 {
 		return errors.New("equação com tamanho inválido")
@@ -19,7 +21,8 @@ func validateEquation(equation string) error {
 	return nil
 }
 
-// valida se a equação é válida
+// isValidEquationSyntax		godoc
+// @Summary 	Identifica se os operadores são de uma equação válida
 func isValidEquationSyntax(equation string) bool {
 	switch {
 	case !hasValidComponents(equation):
@@ -35,7 +38,8 @@ func isValidEquationSyntax(equation string) bool {
 	}
 }
 
-// verifica se a equação possui ao menos um operador matemático
+// hasOperator 	godoc
+// @Summary		Verifica se a equação possui ao menos um operador matemático
 func hasOperator(equation string) bool {
 	for _, v := range equation {
 		if isOperator(v) {
@@ -45,7 +49,8 @@ func hasOperator(equation string) bool {
 	return false
 }
 
-// verifica se a equação infomada possui somente números e operadores matemáticos
+// hasValidComponents		godoc
+// @Summary Verifica se a equação infomada possui somente números e operadores matemáticos
 func hasValidComponents(str string) bool {
 	if len([]rune(str)) < 1 {
 		return false
@@ -58,7 +63,8 @@ func hasValidComponents(str string) bool {
 	return true
 }
 
-// verifica se a equação termina ou inicia com um operador matemático
+// hasCornersOperators		godoc
+// @Summary 	Verifica se a equação termina ou inicia com um operador matemático
 func hasCornersOperators(str string) bool {
 	if (len([]rune(str))) < 2 {
 		return false
@@ -72,6 +78,8 @@ func hasCornersOperators(str string) bool {
 	return false
 }
 
+// hasSequencialOperators		godoc
+// @Summary		Verifica se os operadores estão em sequência
 func hasSequencialOperators(equation string) bool {
 	lastIsOperator := false
 	for _, v := range equation {
@@ -83,6 +91,8 @@ func hasSequencialOperators(equation string) bool {
 	return false
 }
 
+// calculate		godoc
+// @Summary		Verifica se os elementos são operadores.
 func isOperator(r rune) bool {
 	switch r {
 	case '*', '-', '+', '/':

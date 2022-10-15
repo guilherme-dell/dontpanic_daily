@@ -1,6 +1,7 @@
 package server
 
-// configura e retorna uma resposta de erro
+// errorResponse		godoc
+// @Summary 		Configura e retorna uma resposta de erro
 func errorResponse(equation [6]string, msg string) serverResponse {
 	return serverResponse{
 		Status:   false,
@@ -11,7 +12,8 @@ func errorResponse(equation [6]string, msg string) serverResponse {
 	}
 }
 
-// configura e retorna uma resposta de sucesso
+// successResponse		godoc
+// @Summary				Configura e retorna uma resposta de sucesso
 func successResponse(equation [6]string, match bool, hints [6]string) serverResponse {
 	return serverResponse{
 		Status:   true,

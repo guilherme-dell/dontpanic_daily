@@ -12,7 +12,8 @@ type Game interface {
 // tipo que contém a equação oculta do jogo
 type game string
 
-// cria um novo jogo com a equação oculta
+// New			godoc
+// @Summary Cria um novo jogo com a equação oculta
 func New(hiddenEquation string) (game, error) {
 	err := validateEquation(hiddenEquation)
 	if err != nil {
@@ -21,12 +22,14 @@ func New(hiddenEquation string) (game, error) {
 	return game(hiddenEquation), nil
 }
 
-// representação do jogo como estring
+// String			godoc
+// @Summary Representação do jogo como string
 func (g game) String() string {
 	return string(g)
 }
 
-// informa as dicas da equação com base na equação informada
+// Hints			godoc
+// @Summary Informa as dicas da equação com base na equação informada
 func (g game) Hints(equation string) (string, error) {
 
 	err := validateEquation(equation)
@@ -63,7 +66,8 @@ func (g game) Hints(equation string) (string, error) {
 	return string(hints), nil
 }
 
-// avalia a equação informada a calcula o seu valor
+// eval				godoc
+// @Summary Avalia a equação informada a calcula o seu valor
 func eval(equation string) int {
 	values := values(equation)
 	operators := operators(equation)
@@ -86,7 +90,8 @@ func eval(equation string) int {
 	return result
 }
 
-// retorna uma slice de int contendo somente os números da equação
+// values				godoc
+// @Summary Uma slice de int contendo somente os números da equação
 func values(equation string) []int {
 	var values []int
 	onlyValues := strings.FieldsFunc(equation, isOperator)
@@ -97,7 +102,8 @@ func values(equation string) []int {
 	return values
 }
 
-// retorna uma slice de string contendo somente os operadores da equação
+// operators	godoc
+// @Summary Retorna uma slice de string contendo somente os operadores da equação
 func operators(equation string) []string {
 	var operators []string
 	for _, v := range equation {
@@ -108,7 +114,8 @@ func operators(equation string) []string {
 	return operators
 }
 
-// calcula dois valores utilizando a operação informada
+// calculate		godoc
+// @Summary Calcula dois valores utilizando a operação informada
 func calculate(val1, val2 int, operation string) int {
 	switch operation {
 	case "*":
