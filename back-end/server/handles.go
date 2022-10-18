@@ -10,8 +10,20 @@ import (
 	"strings"
 
 	"github.com/gin-gonic/gin"
+	_"github.com/swaggo/swag/example/celler/httputil"
+
 )
 
+// playHandle godoc
+// @Summary      Valida a jogada
+// @Description  Apos digitar uma equacao e clicar em jogar a equacao e enviada para validacao
+// @Tags         game
+// @Accept       json
+// @Produce      json
+// @Param        equacao	body	clientRequest	true	"equacao do usuario"
+// @Success      200  {object}	serverResponse
+// @Failure      400  {object}	httputil.HTTPError
+// @Router       /jogar [post]
 func playHandle(gc *gin.Context) {
 
 	// carrega o corpo da requisição

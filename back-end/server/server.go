@@ -5,6 +5,10 @@ import (
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
+
+	docs "dontpanic/docs"
+	swaggerfiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 type serverResponse struct {
@@ -21,8 +25,10 @@ type clientRequest struct {
 
 func Start() {
 	server := gin.Default()
+	docs.SwaggerInfo.BasePath = "/"
 	configCors(server)
 	server.POST("/jogar", playHandle)
+	server.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 	err := server.Run(":8080")
 	if err != nil {
 		fmt.Println(err.Error())
