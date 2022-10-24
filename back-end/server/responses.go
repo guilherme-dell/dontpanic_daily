@@ -1,47 +1,23 @@
 package server
 
-import "dontpanic/gamerules"
-
-var invalidExpression = serverResponse {
-	Status : false,
-	Msg_erro :"Equação invalida ",
-	Expressao : requestReceived.Expressao,
-	Match : false,
-	Dica : [6]string{},
+// configura e retorna uma resposta de erro
+func errorResponse(equation [6]string, msg string) serverResponse {
+	return serverResponse{
+		Status:   false,
+		Msg_erro: msg,
+		Equation: equation,
+		Match:    false,
+		Hints:    [6]string{},
+	}
 }
 
-var emptyField = serverResponse {
-	Status : false,
-	Msg_erro :"Preencha todos os campos",
-	Expressao : requestReceived.Expressao,
-	Match : false,
-	Dica : [6]string{},
-}
-
-var invalidResult = serverResponse {
-	Status : false,
-	Msg_erro :"O resultado da sua expressão não é 42",
-	Expressao : requestReceived.Expressao,
-	Match : false,
-	Dica : [6]string{},
-}
-
-func gameWin(r aplicationRequest, g gamerules.Game) (response serverResponse){
-	response.Status  = true
-	response.Msg_erro = ""
-	response.Expressao = r.Expressao
-	response.Match = true
-	response.Dica = g.Dicas(equacaoDoDia)
-
-	return
-}
-
-func gameTip(r aplicationRequest, g gamerules.Game) (response serverResponse){
-	response.Status  = true
-	response.Msg_erro = ""
-	response.Expressao = r.Expressao
-	response.Match = false
-	response.Dica = g.Dicas(equacaoDoDia)
-
-	return
+// configura e retorna uma resposta de sucesso
+func successResponse(equation [6]string, match bool, hints [6]string) serverResponse {
+	return serverResponse{
+		Status:   true,
+		Msg_erro: "",
+		Equation: equation,
+		Match:    match,
+		Hints:    hints,
+	}
 }

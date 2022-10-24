@@ -1,12 +1,11 @@
 package db
 
 import (
-	"time"
 	"math/rand"
+	"time"
 )
 
-func SortEquation(equation_yesterday string) (string) {
-	equations := []string{
+var equations = []string{
 	"20*2+2",
 	"10*4+2",
 	"05*8+2",
@@ -39,11 +38,12 @@ func SortEquation(equation_yesterday string) (string) {
 	"40/1+2",
 	"51/1-9",
 }
+
+func randomEquation(differentOf string) string {
 	rand.Seed(time.Now().UnixNano())
-	equation_day := equations[rand.Intn(len(equations))]
-	if equation_day != equation_yesterday{
-		return equation_day
-	} else {
-		return SortEquation(equation_day)
+	equation := equations[rand.Intn(len(equations))]
+	if equation != differentOf {
+		return equation
 	}
+	return randomEquation(differentOf)
 }

@@ -1,0 +1,65 @@
+definitions:
+  httputil.HTTPError:
+    properties:
+      code:
+        example: 400
+        type: integer
+      message:
+        example: status bad request
+        type: string
+    type: object
+  server.clientRequest:
+    properties:
+      expressao:
+        items:
+          type: string
+        type: array
+    type: object
+  server.serverResponse:
+    properties:
+      dica:
+        items:
+          type: string
+        type: array
+      expressao:
+        items:
+          type: string
+        type: array
+      match:
+        type: boolean
+      msg_erro:
+        type: string
+      status:
+        type: boolean
+    type: object
+info:
+  contact: {}
+paths:
+  /jogar:
+    post:
+      consumes:
+      - application/json
+      description: Apos digitar uma equacao e clicar em jogar a equacao e enviada
+        para validacao
+      parameters:
+      - description: equacao do usuario
+        in: body
+        name: equacao
+        required: true
+        schema:
+          $ref: '#/definitions/server.clientRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/server.serverResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Valida a jogada
+      tags:
+      - game
+swagger: "2.0"
