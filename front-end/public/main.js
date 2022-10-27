@@ -50,7 +50,7 @@ function printa_dica(response){
 function jogar(){
 	event.preventDefault()
 	console.log("request enviado")
-	let url = "http://127.0.0.1:8080/jogar"
+	let url = "/jogar"
 	let input1 = document.getElementById("input-1").value
 	let input2 = document.getElementById("input-2").value
 	let input3 = document.getElementById("input-3").value
