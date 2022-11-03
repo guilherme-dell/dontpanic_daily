@@ -21,4 +21,4 @@ WORKDIR /app
 COPY --from=build /app/dontpanic .
 
 EXPOSE 8080
-ENTRYPOINT [ "/app/dontpanic"]
+ENTRYPOINT ["/app/dontpanic"]

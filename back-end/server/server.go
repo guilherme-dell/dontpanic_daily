@@ -2,7 +2,7 @@ package server
 
 import (
 	"fmt"
-
+	"dontpanic/db"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 
@@ -30,7 +30,9 @@ func Start() {
 	configCors(server)
 	server.POST("/jogar", playHandle)
 	server.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
-	err := server.Run(":8080")
+	todayEquation, err := db.TodayEquation()
+	fmt.Println("Equação do dia é:", todayEquation)
+	err = server.Run(":8080")
 	if err != nil {
 		fmt.Println(err.Error())
 	}
